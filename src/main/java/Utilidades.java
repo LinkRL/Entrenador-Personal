@@ -5,14 +5,29 @@ import java.util.Scanner;
  */
 public class Utilidades {
     public static String leerCadena(Scanner teclado, String s) {
+        System.out.print(s);
+        String linea = teclado.nextLine();
         // Muestra un mensaje y lee una cadena (línea completa) por teclado
-        return null; // @todo MODIFICAR PARA DEVOLVER LA CADENA LEÍDA
+        return linea;
     }
 
     public static int leerNumero(Scanner teclado, String mensaje, int minimo, int maximo) {
+        int n= 0;
+        boolean ok = true;
+        do {
+            System.out.print(mensaje);
+            String linea = teclado.nextLine();
+            ok = true;
+            try{
+            n = Integer.parseInt(linea.trim());
+            }catch(NumberFormatException e){
+                ok = false;
+            }
+        }
+        while(n<minimo||maximo<n||!ok);
         // Muestra un mensaje y lee un número por teclado (si no es un número o está fuera de rango, vuelve a
         // solicitarlo)
-        return 0; // @todo MODIFICAR PARA DEVOLVER EL NÚMERO LEÍDO
+        return n;
     }
 
     public static int leerDiaDeLaSemana(Scanner teclado, String mensaje) {
